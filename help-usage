@@ -1,0 +1,9 @@
+#!/bin/sh -e
+#
+# Displays help and usage information for fellow scripts.
+#
+# Usage: ./help-usage [SCRIPT]
+#
+
+test $# -gt 0 || set -- "$0"
+sed '1d; /^[^#]\|^$/,$d; s/^# \?//' "$@"

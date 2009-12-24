@@ -1,0 +1,53 @@
+#!/bin/sh -e
+#
+# Clones or updates the Git repositories specified in `./**/*.get` files,
+# starting from the most recently modified file down to the earliest one.
+# This is done in parallel, with up to half of maximum allowed processes.
+#
+# It also runs make(1) inside Git clone directories that have a Makefile.
+#
+# Usage: ./update-bundles [DIRECTORY|GET_FILE]...
+#
+
+# add color to the output when stdout is connected to a terminal device
+test -t 1 && colorize_output='
+  s/.* Updating .*\.\..*/\x1b[32m&\x1b[0m/;
+  s/.* Frozen at commit .*/\x1b[33m&\x1b[0m/;
+  s/.* Failed with exit status .*/\x1b[31m&\x1b[0m/;
+' || unset colorize_output
+
+process_limit=$(ulimit -a | awk '/process/{ print int( $NF / 2 ) }') # halve
+git ls-files -c -o "$@" | grep '\.get$' | xargs ls -t | { while read get; do
+
+  url=$(cat "$get")
+  dir=${get%.get}
+  {
+    {
+      mkdir -p "$dir"
+      cd "$dir"
+      test -d .git || git clone --recursive "$url" .
+      if git symbolic-ref -q HEAD >/dev/null; then
+        git remote set-url origin "$url" &&
+        git fetch --quiet origin &&
+        git merge --ff-only origin/master &&
+        git submodule update --recursive &&
+        if test -f [mM]akefile -a \
+          '(' ! -f .make -o .make -ot .git/refs/remotes/origin/master ')'
+        then
+          touch .make
+          make
+        fi
+      else
+        echo "Frozen at commit $(git show-ref -s7 HEAD)."
+      fi
+    } 2>&1 || echo "Failed with exit status $?."
+  } | sed "/^Already up-to-date\.$/d; s!^!$dir: !; $colorize_output" &
+
+
+  # throttle process creation to avoid exceeding system process limit
+  # which results in "fork: Resource temporarily unavailable" errors
+  test $(pgrep -u "$USER" | wc -l) -gt $process_limit && wait
+
+done
+wait
+}
