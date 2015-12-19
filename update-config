@@ -11,7 +11,7 @@ git rebase HEAD --quiet
 # download new commits from upstream
 remote=upstream
 git remote show $remote >/dev/null 2>&1 || git remote add $remote .
-git remote set-url $remote https://github.com/sunaku/.vim.git
+git remote set-url $remote https://github.com/meinconfig/vim.git
 git fetch $remote
 
 # rebase current branch atop upstream
@@ -61,7 +61,9 @@ fi
 
 # drop changes that rebased without conflict but were removed upstream
 env GIT_SEQUENCE_EDITOR="sed -i -e '/^# pick.*fixup!/s/^# //; 2,\${$(
-  git log --format='/ [[:xdigit:]]\{7\} %s$/d' $target | tr '\n' ';'
+  git log --format='%s' $target |                     # grab subject lines
+  sed 's/[\^.[$()|*+?{\\\/]/\\&/g' |                  # escape as regex(7)
+  awk '{print "/^pick [[:xdigit:]]\\{7\\} "$0"$/d;"}' # build sed commands
 )}'" git rebase --interactive $target~
 
 # show discarded changes from conflicting commits that were set aside
