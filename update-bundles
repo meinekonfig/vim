@@ -16,7 +16,7 @@ test -t 1 && colorize_output='
   s/.* Failed with exit status .*/\x1b[31m&\x1b[0m/;
 ' || unset colorize_output
 
-process_limit=$(ulimit -a | awk '/process/{ print int( $NF / 2 ) }') # halve
+process_limit=$(ulimit -a | awk '/process/{ print int( $NF / 1 ) }') # halve
 git ls-files -c -o "$@" | grep '\.get$' | xargs ls -t | { while read get; do
 
   url=$(cat "$get")

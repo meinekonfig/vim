@@ -11,7 +11,7 @@ git rebase HEAD --quiet
 # download new commits from upstream
 remote=upstream
 git remote show $remote >/dev/null 2>&1 || git remote add $remote .
-git remote set-url $remote https://github.com/meinconfig/vim.git
+git remote set-url $remote https://github.com/meinekonfig/vim.git
 git fetch $remote
 
 # rebase current branch atop upstream
