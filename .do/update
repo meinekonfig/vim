@@ -11,6 +11,8 @@
 # This is done in parallel, at up to half of the maximum process limit,
 # unless the `UPDATE_BUNDLES_SEQUENTIALLY` environment variable is set.
 #
+# Usage: ./update-bundles [DIRECTORY|GET_FILE]...
+#
 # Written in 2010 by Suraj N. Kurapati <https://github.com/sunaku>
 
 parallel_processes=$(ulimit -a | awk '/process/ { print int( $NF / 2 ) }')
