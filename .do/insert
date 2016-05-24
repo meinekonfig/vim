@@ -3,18 +3,19 @@
 # Inserts a new bundle, optionally named BUNDLE_NAME, into the given CATEGORY.
 # You can specify USER/REPO in place of URL to insert from GitHub repositories.
 #
-# Usage: ./insert-bundle [URL|USER/REPO] [ft]bundle/CATEGORY[/BUNDLE_NAME]
+# Usage: .do/insert [URL|USER/REPO] [ft]bundle/CATEGORY[/BUNDLE_NAME]
 #
-# Usage: ./insert-bundle URL bundle/CATEGORY
-# Usage: ./insert-bundle URL bundle/CATEGORY/BUNDLE_NAME
-# Usage: ./insert-bundle URL ftbundle/FILETYPE
-# Usage: ./insert-bundle URL ftbundle/FILETYPE/BUNDLE_NAME
+# Usage: .do/insert URL bundle/CATEGORY
+# Usage: .do/insert URL bundle/CATEGORY/BUNDLE_NAME
+# Usage: .do/insert URL ftbundle/FILETYPE
+# Usage: .do/insert URL ftbundle/FILETYPE/BUNDLE_NAME
 #
-# Usage: ./insert-bundle USER/REPO bundle/CATEGORY
-# Usage: ./insert-bundle USER/REPO bundle/CATEGORY/BUNDLE_NAME
-# Usage: ./insert-bundle USER/REPO ftbundle/FILETYPE
-# Usage: ./insert-bundle USER/REPO ftbundle/FILETYPE/BUNDLE_NAME
+# Usage: .do/insert USER/REPO bundle/CATEGORY
+# Usage: .do/insert USER/REPO bundle/CATEGORY/BUNDLE_NAME
+# Usage: .do/insert USER/REPO ftbundle/FILETYPE
+# Usage: .do/insert USER/REPO ftbundle/FILETYPE/BUNDLE_NAME
 #
+# Written in 2010 by Suraj N. Kurapati <https://github.com/sunaku>
 
 # parse the command line arguments and options
 test $# -ge 2
@@ -49,4 +50,4 @@ git add -f "$get"
 git status "$get"
 
 # clone the newly inserted bundle immediately
-./update-bundles "$get"
+${0%/*}/update "$get"

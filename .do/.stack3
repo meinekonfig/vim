@@ -1,9 +1,8 @@
 #!/bin/sh -e
 #
-# Reapplies the stacked three-branch architecture: master => config => bundle.
+# Rebases the three branches, with spacey atop earthy atop master.
 #
-# Usage: ./stack-configs
-#
+# Written in 2010 by Suraj N. Kurapati <https://github.com/sunaku>
 
 # ensure that working tree is clean
 git rebase HEAD --quiet
@@ -11,7 +10,7 @@ git branch -v # for user's reference
 
 # reapply stacked three-branch architecture
 base=
-for branch in master config bundle spacey; do
+for branch in master earthy spacey; do
   if test -n "$base"; then
     git checkout $branch
     commit=$(git rev-parse --short HEAD)

@@ -6,10 +6,11 @@
 # If you no longer wish to rename the bundle, just press ENTER to skip it.
 # If you made a mistake and want to abort the rename, press Control and C.
 #
-# Usage: ./rename-bundles [OPTIONS_FOR_GREP...] BUNDLE_NAME_REGEXP
+# Usage: .do/rename [OPTIONS_FOR_GREP...] BUNDLE_NAME_REGEXP
 #
+# Written in 2015 by Suraj N. Kurapati <https://github.com/sunaku>
 
-git ls-files --cached --others '*.get' | grep -i "${@-.}" | while read get; do
+git ls-files --cached --others '*.get' | grep -i "${@-.}" | while read -r get; do
 
   dir=${get%.get}
   read -p "(rename) " -i "$dir" -e rename </dev/tty

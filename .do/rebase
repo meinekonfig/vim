@@ -1,0 +1,21 @@
+#!/bin/sh -e
+#
+# Replays local commits atop the newest changes from upstream.
+#
+# Usage: .do/rebase      # asks to confirm .do/clean
+# Usage: .do/rebase -f   # no confirmation; force it
+#
+# Written in 2010 by Suraj N. Kurapati <https://github.com/sunaku>
+
+# download new commits from upstream
+remote=upstream
+git remote show $remote >/dev/null 2>&1 || git remote add $remote .
+git remote set-url $remote https://github.com/meinekonfig/vim.git
+git fetch $remote
+
+# rebase current branch atop upstream
+branch=$(git name-rev --name-only HEAD)
+${0%/*}/.autocon "$remote/$branch"
+
+# try to clean up any orphaned bundles
+${0%/*}/clean "$@"
