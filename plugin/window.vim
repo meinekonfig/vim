@@ -21,4 +21,4 @@ nnoremap <Leader>4 <C-w>c
 " all windows equal size
 nnoremap <Leader>0 <C-w>=
 " ... also on vim resize
-"autocmd VimResized * execute "normal \<C-w>=\<C-l>"
+autocmd VimResized * execute "normal \<C-w>=\<C-l>"

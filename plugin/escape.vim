@@ -1,6 +1,6 @@
 " TLDR: Use <C-c> instead of <Esc> to always unambiguously exit insert mode!
 "
-" Why?  Because Alt-key combos and arrow keys are compound sequences that
+" Why? Because Alt-key combos and arrow keys are compound sequences that
 " contain <Esc>: this prevents Vim from easily recognizing a single <Esc> key
 " from an embedded <Esc> that occurs as part of Alt-key combos or arrow keys.
 " However, that does not mean recognition is impossible; see `:help ttimeout`.

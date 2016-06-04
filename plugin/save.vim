@@ -22,4 +22,4 @@ endfunction
 
 nnoremap <silent> <Leader><C-s> :call StripTrailingWhitespace()<Return>
 nnoremap <silent> <C-s> :write<Return>
-" nnoremap <silent> <C-S-s> :saveas<Space>
+nnoremap <silent> <C-S-s> :saveas<Space>
