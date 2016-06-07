@@ -12,13 +12,14 @@ let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 let g:go_term_enabled = 1
 
-nmap <Leader>gld <Plug>(go-def-vertical)
-nmap <Leader>gldo <Plug>(go-doc-vertical)
-nmap <Leader>glds <Plug>(go-def-split)
-nmap <Leader>gli <Plug>(go-info)
-nmap <leader>glc <Plug>(go-callers)
+nmap <Leader>god <Plug>(go-def-vertical)
+nmap <Leader>goD <Plug>(go-def-split)
+nmap <Leader>goi <Plug>(go-info)
+nmap <leader>goc <Plug>(go-callers)
 
-nmap <leader>glr <Plug>(go-run)
-nmap <leader>glb <Plug>(go-build)
-nmap <leader>glt <Plug>(go-test)
-nmap <leader>glc <Plug>(go-coverage)
+nmap <leader>gor <Plug>(go-run)
+nmap <leader>gob <Plug>(go-build)
+nmap <leader>got <Plug>(go-test)
+
+nmap <leader>gocov <Plug>(go-coverage)
+nmap <Leader>godoc <Plug>(go-doc-vertical)
