@@ -1,0 +1,1 @@
+setlocal synmaxcol=0
