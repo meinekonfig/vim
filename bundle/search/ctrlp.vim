@@ -1,24 +1,3 @@
-" Default to filename searches - so that appctrl will find application
-" controller
-" let g:ctrlp_by_filename = 1
-" let g:ctrlp_working_path_mode = 'ra'
-
-" let g:ctrlp_map = ',t'
-" nnoremap <silent> ,t :CtrlP<CR>
-
-" " Additional mapping for buffer search
-" nnoremap <silent> ,b :CtrlPBuffer<cr>
-" nnoremap <silent> <C-b> :CtrlPBuffer<cr>
-
-" We don't want to use Ctrl-p as the mapping because
-" it interferes with YankRing (paste, then hit ctrl-p)
-nnoremap <silent> t :CtrlP<cr>
-nnoremap <silent><leader>t :CtrlP<cr>
-nnoremap <silent><leader>r :CtrlPMRUFiles<cr>
-
-" Cmd-Shift-P to clear the cache
-nnoremap <silent> <D-P> :ClearCtrlPCache<cr>
-
 " Don't jump to already open window. This is annoying if you are maintaining
 " several Tab workspaces and want to open two windows into the same file.
 let g:ctrlp_switch_buffer = 0
