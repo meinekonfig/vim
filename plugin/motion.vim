@@ -25,7 +25,3 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" use tab to move around splits
-nnoremap <tab> <C-w>w
-nnoremap <S-tab> <C-w>W
