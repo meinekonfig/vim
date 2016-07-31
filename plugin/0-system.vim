@@ -11,3 +11,4 @@ call s:LoadExampleVimrc('')
 if has('gui_running')
   call s:LoadExampleVimrc('g')
 endif
+

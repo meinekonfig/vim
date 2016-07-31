@@ -55,7 +55,8 @@ function! GetVisual() range
 endfunction
 
 " Start the find and replace command across the entire file
-vmap <leader>z <Esc>:%s/<c-r>=GetVisual()<cr>/
+  vmap <leader>z <Esc>:%s/<c-r>=GetVisual()<cr>/
+  vmap <leader>Z <Esc>:%s/\<<c-r>=GetVisual()<cr>\>/
 
 " The Silver Searcher
 " Inspired by http://robots.thoughtbot.com/faster-grepping-in-vim/
@@ -70,7 +71,8 @@ if executable('ag')
   " let g:ctrlp_use_caching = 0
 
   " bind K to grep word under cursor
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  nnoremap K <NOP>
+  nnoremap <leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
   " bind , (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
