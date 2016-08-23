@@ -1,10 +1,10 @@
 let g:go_fmt_command = "goimports"
 
+let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_types = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 0
 let g:go_highlight_build_constraints = 1
 
 let g:go_metalinter_autosave = 1
@@ -22,4 +22,5 @@ nmap <leader>gob <Plug>(go-build)
 nmap <leader>got <Plug>(go-test)
 
 nmap <leader>gocov <Plug>(go-coverage)
-nmap <Leader>godoc <Plug>(go-doc-vertical)
+nmap <leader>godoc <Plug>(go-doc-vertical)
+nmap <leader>gom <Plug>(go-metalinter)
