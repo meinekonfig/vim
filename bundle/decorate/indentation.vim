@@ -12,4 +12,7 @@ let g:indentLine_fileTypeExclude = ['json', 'markdown']
 let g:indentLine_color_tty_dark = 238
 let g:indentLine_color_tty_light = 252
 
+" so it does not interfere with vim-json
+let g:indentLine_noConcealCursor=""
+
 nnoremap <silent> <Leader>.I :IndentLinesToggle<Return>
