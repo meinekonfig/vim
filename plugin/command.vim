@@ -15,8 +15,8 @@ noremap @! :!<Up><Return>
 " enable EMACS-style cursor movement inside command mode
 " https://statico.github.io/vim.html#rudimentary-essentials
 cnoremap <C-a> <Home>
-" cnoremap <C-b> <Left>
-" cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
 cnoremap <C-d> <Delete>
 cnoremap <A-b> <S-Left>
 cnoremap <A-f> <S-Right>
