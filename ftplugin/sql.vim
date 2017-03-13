@@ -96,6 +96,7 @@ inoreabbr <silent> <buffer> join <C-R>=SqlIab_ReplaceConditionally('join', 'JOIN
 inoreabbr <silent> <buffer> jsonb <C-R>=SqlIab_ReplaceConditionally('jsonb', 'JSONB')<CR>
 inoreabbr <silent> <buffer> key <C-R>=SqlIab_ReplaceConditionally('key', 'KEY')<CR>
 inoreabbr <silent> <buffer> language <C-R>=SqlIab_ReplaceConditionally('language', 'LANGUAGE')<CR>
+inoreabbr <silent> <buffer> left <C-R>=SqlIab_ReplaceConditionally('left', 'LEFT')<CR>
 inoreabbr <silent> <buffer> level <C-R>=SqlIab_ReplaceConditionally('level', 'LEVEL')<CR>
 inoreabbr <silent> <buffer> line <C-R>=SqlIab_ReplaceConditionally('line', 'LINE')<CR>
 inoreabbr <silent> <buffer> listen <C-R>=SqlIab_ReplaceConditionally('listen', 'LISTEN')<CR>
