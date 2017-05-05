@@ -14,7 +14,6 @@ highlight Comment ctermfg=245
 " add LimeLight support for gruvbox
 let g:limelight_conceal_ctermfg = 241
 
-
 " improve unite.vim search candidate highlighting
 highlight link uniteCandidateInputKeyword MoreMsg
 
