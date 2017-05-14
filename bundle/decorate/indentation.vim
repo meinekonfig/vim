@@ -6,7 +6,7 @@ else
   let g:indentLine_char = '│'    " <C-k>vv
 endif
 
-let g:indentLine_fileTypeExclude = ['json', 'markdown']
+let g:indentLine_fileTypeExclude = ['json', 'markdown', 'go']
 
 " make indent guide lines brighter
 let g:indentLine_color_tty_dark = 238

@@ -10,9 +10,11 @@
 " makes arrow keys insert "ABCD" on new lines instead of moving the cursor.
 
 " don't bother with the following workarounds if `:set noesckeys` is enabled
-if !&esckeys
-  finish
-endif
+if has('nvim') != 1
+  if !&esckeys
+    finish
+  endif
+end
 
 " immediately exit insert mode when <Esc> is pressed; don't wait for keycodes
 set ttimeout ttimeoutlen=0
