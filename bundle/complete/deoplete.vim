@@ -1,4 +1,4 @@
-if has('nvim')
+if has('nvim') == 1
   inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
   let g:deoplete#enable_at_startup = 1

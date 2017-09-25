@@ -6,9 +6,11 @@ let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_structs = 1
 
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_autosave = 0
+" let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 let g:go_term_enabled = 1
 

@@ -6,6 +6,9 @@ endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_theme = "dark"
 
+" enabled ale for airline
+let g:airline#extensions#ale#enabled = 1
+
 " darken text in non-active windows (StatusLineNC)
 let g:airline_theme_patch_func = 'AirlineThemePatch'
 function! AirlineThemePatch(palette)
